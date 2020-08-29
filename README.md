@@ -15,5 +15,5 @@ Summary of Project
 #### How to Run
 
 
-1. instructions 1
+1. Input a cost for the item you would like to purchase
 2. instructions 2
