@@ -1,43 +1,41 @@
 package makechange;
-
 import java.util.Scanner;
-
 import java.math.RoundingMode;
 import java.lang.Math; 
 
 
 public class MakeChange {
 	public static void main(String[] args) {
+		
 		// Import scanner
 		Scanner sc = new Scanner(System.in);
-
+		
 		// Declare variables
 		double prodPrice, amtTendered, cashBack, maxPrice;
-		
-		
-		
-			
-
-
-
 		maxPrice = 20.0;
-
+		
 		// Prompt user to input the item's price
 		System.out.println("Please, enter the price for the item: ");
-		prodPrice = sc.nextDouble();
+		
+		double itemPrice = 0;
+		double mnyGiven = 0;
+		
+		prodPrice = sc.nextInt();
 		System.out.println(prodPrice);
+		
 		System.out.println("Please, enter amount tendered: ");
-		amtTendered = sc.nextDouble();
+		amtTendered = sc.nextInt();
+		
+		
 		if (amtTendered < prodPrice) {
 			System.out.println("Please enter the correct amount of money");
 		} else if (amtTendered == prodPrice) {
 			System.out.println("Have a nice day. Come again");
 		} else {
 			System.out.println(amtTendered - prodPrice);
-			// Declare cashBack variable and initialize
-
-			cashBack = amtTendered - prodPrice;
 			
+			// Declare cashBack variable and initialize
+			cashBack = amtTendered - prodPrice;
 			int tens = (int) (cashBack / 10);
 			cashBack = cashBack - (tens * 10);
 			int fives = (int) (cashBack / 5);
@@ -52,13 +50,9 @@ public class MakeChange {
 			cashBack = cashBack - (nickels * .05);
 			int pennies = (int) (cashBack /.01);
 			cashBack = cashBack - (pennies * .01);
-			
-			
 			System.out.println("Here is your change: " + tens + " tens " + fives + " fives " + dollars + " dollars "
 					+ quarters + " Quarters, " + dimes + " Dimes," + nickels + " Nickels, " + pennies + " Pennies "
-					+ " Have a nice day!");
-
+					+ " Have an excellent day!");
 		} sc.close();
-
 	} 
 }
