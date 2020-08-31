@@ -2,6 +2,10 @@ package makechange;
 
 import java.util.Scanner;
 
+import java.math.RoundingMode;
+import java.lang.Math; 
+
+
 public class MakeChange {
 	public static void main(String[] args) {
 		// Import scanner
@@ -9,20 +13,14 @@ public class MakeChange {
 
 		// Declare variables
 		double prodPrice, amtTendered, cashBack, maxPrice;
-//		int pennies, nickels, dimes, quarters, dollars, fives, tens, twenties;
+		
+		
+		
+			
 
-		// Initialize variables
-//		double Pennies = .01;
-//		double Nickels = .05;
-//		double Dimes = .10;
-//		double Quarters = .25;
-//		double Dollars = 1.00;
-//		double Fives = 5.00;
-//		double Tens = 10.00;
-//		double Twenties = 20.00;
-//		boolean keepGoing = true;
 
-		maxPrice = 20;
+
+		maxPrice = 20.0;
 
 		// Prompt user to input the item's price
 		System.out.println("Please, enter the price for the item: ");
@@ -36,25 +34,31 @@ public class MakeChange {
 			System.out.println("Have a nice day. Come again");
 		} else {
 			System.out.println(amtTendered - prodPrice);
-		}
-		
+			// Declare cashBack variable and initialize
 
-//		while (prodPrice <= maxPrice) 	
-//		{System.out.println("Please, enter the amount tendered: ");
-//			amtTendered = sc.nextDouble();
+			cashBack = amtTendered - prodPrice;
+			
+			int tens = (int) (cashBack / 10);
+			cashBack = cashBack - (tens * 10);
+			int fives = (int) (cashBack / 5);
+			cashBack = cashBack - (fives * 5);
+			int dollars = (int) (cashBack / 1);
+			cashBack = cashBack - (dollars * 1);
+			int quarters = (int) (cashBack / .25);
+			cashBack = cashBack - (quarters * .25);
+			int dimes = (int) (cashBack / .10);
+			cashBack = cashBack - (dimes * .10);
+			int nickels = (int) (cashBack / .05);
+			cashBack = cashBack - (nickels * .05);
+			int pennies = (int) (cashBack /.01);
+			cashBack = cashBack - (pennies * .01);
+			
+			
+			System.out.println("Here is your change: " + tens + " tens " + fives + " fives " + dollars + " dollars "
+					+ quarters + " Quarters, " + dimes + " Dimes," + nickels + " Nickels, " + pennies + " Pennies "
+					+ " Have a nice day!");
 
-//			if (prodPrice > maxPrice) 
-//			{System.out.println("We can't afford those items. Spend less money");
-//			return;
-//																	} 
-//
-//				 if (amtTendered > maxPrice) {
-//					System.out.println("Please, offer amount less than $20.");
-//					return;
-//				}
-//			} 
-		}
-	}
+		} sc.close();
 
-
-
+	} 
+}
